@@ -6,9 +6,9 @@ app = Flask(__name__, static_folder='public', static_url_path='')
 
 songs = []
 
-for path in os.listdir("./public/static/music/"):
+for path in os.listdir("./public/static/css/music/"):
     # check if current path is a file
-    if os.path.isfile(os.path.join("./public/static/music/", path)):
+    if os.path.isfile(os.path.join("./public/static/css/music/", path)):
         songs.append(path.replace('.mp3', ''))
 
 def get_random_song_info():
@@ -27,12 +27,12 @@ def get_track_song(track_no):
 @app.route('/')
 def index():
     song = get_random_song_info()
-    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='static/images/'+song[2]+".png", File='static/music/'+songs[int(song[0])-1]+".mp3")
+    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='static/css/images/'+song[2]+".png", File='static/css/music/'+songs[int(song[0])-1]+".mp3")
 
 @app.route('/songs/<int:track_no>/')
 def track(track_no):
     song = get_track_song(track_no-1)
-    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='static/images/'+song[2]+".png", File='static/music/'+songs[int(song[0])-1]+".mp3")
+    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='static/css/images/'+song[2]+".png", File='static/css/music/'+songs[int(song[0])-1]+".mp3")
 
 @app.errorhandler(404)
 def page_not_found(e):
