@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SongTrack</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+        {% set TrackNo = TrackNo | int %}
+    </head>
+    <body>
+        <div class="hero is-primary">
+            <div class="hero-body">
+                <h1 class="title">SongTrack</h1>
+                <p>A player that plays my favorite songs. To change songs refresh the page</p>
+                <a href="/songs/{{TrackNo}}/">Song link</a>
+            </div>
+        </div>
+        <section class="section">
+            <div class="container">
+                <div class="block">
+                    <div class="columns">
+                        <div class="column is-one-quarter">
+                            <figure class="image is-128x128">
+                                <img src={{ url_for('static', filename=Picture) }}>
+                            </figure>
+                        </div>
+                        <audio id="audio" controls style="display: none;">
+                            <source src={{ url_for('static', filename=File) }} type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="column">
+                            <h1 class="title">{{ Title }}</h1>
+                            <p class="subtitle">{{ Artist }}</p>
+                            <p class="subtitle">Track: #{{TrackNo}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="block">
+                    <div class="buttons">
+                        <a href="/songs/{{TrackNo - 1}}/" class="button is-primary">
+                            <span class="icon"><i class="fas fa-arrow-left"></i></span>
+                        </a>
+                        <button class="button is-primary" onclick="play()">
+                            <span class="icon"><i id="stopper" class="fas fa-play"></i></span>
+                        </button>
+                        <a href="/songs/{{TrackNo + 1}}/" class="button is-primary">
+                            <span class="icon"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src={{ url_for('static', filename='js/index.js') }}></script>
+    </body>
+</html>
