@@ -6,17 +6,17 @@
         <title>SongTrack</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="../../static/css/style.css">
         {% set TrackNo = TrackNo | int %}
     </head>
     <body>
         <div class="hero is-primary">
             <div class="hero-body">
                 <h1 class="title">SongTrack</h1>
-                <p>A player that plays my favorite songs. To get a random song refresh the page</p>
+                <p>A player that plays my favorite songs.</p>
                 <p>◀ will go to the previous song.</p>
                 <p>▶ will go to the next song.</p>
-                <a href="/songs/{{TrackNo}}/"><strong>link to the song.</strong></a>
+                <a href="/songs/{{TrackNo}}/"><strong>Track #{{ TrackNo }}</strong></a>
             </div>
         </div>
         <section class="section">
@@ -25,11 +25,11 @@
                     <div class="columns">
                         <div class="column is-one-quarter">
                             <figure class="image is-128x128">
-                                <img src="../static{{ Picture }}"">
+                                <img src="../../static{{ Picture }}"">
                             </figure>
                         </div>
                         <audio id="audio" controls style="display: none;">
-                            <source src="../static{{ File }}" type="audio/mp3">
+                            <source src="../../static{{ File }}" type="audio/mp3">
                             Your browser does not support the audio element.
                         </audio>
                         <div class="column">
@@ -54,6 +54,6 @@
                 </div>
             </div>
         </section>
-        <script src="../static/js/index.js"></script>
+        <script src="../../static/js/index.js"></script>
     </body>
 </html>
