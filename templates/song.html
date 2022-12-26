@@ -12,7 +12,7 @@
     <body>
         <div class="hero is-primary">
             <div class="hero-body">
-                <h1 class="title">SongTrack</h1>
+                <h1 class="title"><a href="/">SongTrack</a></h1>
                 <p>A player that plays my favorite songs.</p>
                 <p>◀ will go to the previous song.</p>
                 <p>▶ will go to the next song.</p>
@@ -54,6 +54,16 @@
                 </div>
             </div>
         </section>
+        <script>
+            let MusicInfo = [
+                {"info": "{{ TrackNum }}"},
+                {"info": "{{ Title }}"},
+                {"info": "{{ Artist }}"},
+                {"info": "{{ File }}"},
+                {"info": "{{ Picture }}"}
+            ]
+            console.table(MusicInfo)
+        </script>
         <script src={{ url_for('static', filename="js/index.js") }}></script>
     </body>
 </html>
