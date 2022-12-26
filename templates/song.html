@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel="stylesheet" href="../../static/css/style.css">
-        {% set TrackNo = TrackNo | int %}
+        {% set TrackNum = TrackNo | int %}
     </head>
     <body>
         <div class="hero is-primary">
@@ -16,7 +16,7 @@
                 <p>A player that plays my favorite songs.</p>
                 <p>◀ will go to the previous song.</p>
                 <p>▶ will go to the next song.</p>
-                <a href="/songs/{{TrackNo}}/"><strong>Track #{{ TrackNo }}</strong></a>
+                <a href="/songs/{{ TrackNum }}/"><strong>Track #{{ TrackNum }}</strong></a>
             </div>
         </div>
         <section class="section">
@@ -35,19 +35,19 @@
                         <div class="column">
                             <h1 class="title">{{ Title }}</h1>
                             <p class="subtitle">{{ Artist }}</p>
-                            <p class="subtitle">Track: #{{TrackNo}}</p>
+                            <p class="subtitle">Track: #{{TrackNum}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="block">
                     <div class="buttons">
-                        <a href="/songs/{{TrackNo - 1}}/" class="button is-primary">
+                        <a href="/songs/{{ TrackNum - 1 }}/" class="button is-primary">
                             <span class="icon"><i class="fas fa-arrow-left"></i></span>
                         </a>
                         <button class="button is-primary" onclick="play()">
                             <span class="icon"><i id="stopper" class="fas fa-play"></i></span>
                         </button>
-                        <a href="/songs/{{TrackNo + 1}}/" class="button is-primary">
+                        <a href="/songs/{{ TrackNum + 1 }}/" class="button is-primary">
                             <span class="icon"><i class="fas fa-arrow-right"></i></span>
                         </a>
                     </div>
