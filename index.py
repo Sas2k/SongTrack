@@ -25,7 +25,7 @@ def get_track_song(track_no) -> list:
         song = str(songs[track_no]).replace("_", " ").split('-')
         return song
     except:
-        song = str(songs[-1]).replace("_", " ").split('-')
+        song = str(songs[0]).replace("_", " ").split('-')
         return song
 
 
