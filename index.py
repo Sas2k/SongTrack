@@ -16,16 +16,16 @@ def get_songs() -> list:
 
 def get_random_song_info() -> list:
     songs = get_songs()
-    song = str(songs[randint(0, len(songs) - 1)]).replace('.mp3', '').split(' - ')
+    song = str(songs[randint(0, len(songs) - 1)]).replace("_", " ").split('-')
     return song
 
 def get_track_song(track_no) -> list:
     songs = get_songs()
     try:
-        song = str(songs[track_no]).replace('.mp3', '').split(' - ')
+        song = str(songs[track_no]).replace("_", " ").split('-')
         return song
     except:
-        song = str(songs[-1]).replace('.mp3', '').split(' - ')
+        song = str(songs[-1]).replace("_", " ").split('-')
         return song
 
 
@@ -33,13 +33,13 @@ def get_track_song(track_no) -> list:
 def index():
     songs = get_songs()
     song = get_random_song_info()
-    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/images/'+song[2]+".png", File='/music/'+songs[int(song[0])-1]+".mp3")
+    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/images/'+song[2].replace(" ", "_")+".png", File='/music/'+songs[int(song[0])-1]+".mp3")
 
 @app.route('/songs/<int:track_no>/')
 def track(track_no):
     songs = get_songs()
     song = get_track_song(track_no-1)
-    return render_template('song.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/images/'+song[2]+".png", File='/music/'+songs[int(song[0])-1]+".mp3")
+    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/images/'+song[2].replace(" ", "_")+".png", File='/music/'+songs[int(song[0])-1]+".mp3")
 
 @app.errorhandler(404)
 def page_not_found(e):

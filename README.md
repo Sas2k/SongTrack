@@ -32,11 +32,11 @@ This is my attempt at creating a music player. The home page will load a random 
 
 The user can play a song by clicking on the play button. The user can go to the next song by clicking on the button with the right arrow. The user can go to the previous song by clicking on the button with the left arrow.
 
-for playing specific songs. you can either click on the "Song Link" text go to the current one, Or go to `/songs/<track-number>` to go to a specific song.
+for playing specific songs. you can either click on the "Song Link" text go to the current one, Or go to `/songs/<track_number>` to go to a specific song.
 
 also the .mp3 are formatted this way
 
-`<track-number> - <song-artist> - <song-name>.mp3`
+`<track_number>-<song_artist>-<song_name>.mp3`
  
 ## 🚀 Deployment <a name = "deployment"></a>
 

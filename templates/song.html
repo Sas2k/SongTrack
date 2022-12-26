@@ -6,7 +6,7 @@
         <title>SongTrack</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-        <link rel="stylesheet" href="../../static/css/style.css">
+        <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
         {% set TrackNum = TrackNo | int %}
     </head>
     <body>
@@ -25,11 +25,11 @@
                     <div class="columns">
                         <div class="column is-one-quarter">
                             <figure class="image is-128x128">
-                                <img src="../../static{{ Picture }}"">
+                                <img src={{ url_for("static", filename=Picture) }}>
                             </figure>
                         </div>
                         <audio id="audio" controls style="display: none;">
-                            <source src="../../static{{ File }}" type="audio/mp3">
+                            <source src={{ url_for("static", filename=File) }} type="audio/mp3">
                             Your browser does not support the audio element.
                         </audio>
                         <div class="column">
@@ -54,6 +54,6 @@
                 </div>
             </div>
         </section>
-        <script src="../../static/js/index.js"></script>
+        <script src={{ url_for('static', filename="js/index.js") }}></script>
     </body>
 </html>
