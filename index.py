@@ -14,6 +14,7 @@ def get_songs() -> list:
 
     #sort songs by track number
     songs.sort(key=lambda x: int(x.split('-')[0]))
+    print(songs)
     return songs
 
 def get_random_song_info() -> list:
@@ -35,12 +36,14 @@ def get_track_song(track_no) -> list:
 def index():
     songs = get_songs()
     song = get_random_song_info()
+    print(song)
     return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/images/'+song[2].replace(" ", "_")+".png", File='/music/'+songs[int(song[0])-1]+".mp3")
 
 @app.route('/songs/<int:track_no>/')
 def track(track_no):
     songs = get_songs()
     song = get_track_song(track_no-1)
+    print(song)
     return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/images/'+song[2].replace(" ", "_")+".png", File='/music/'+songs[int(song[0])-1]+".mp3")
 
 @app.errorhandler(404)
