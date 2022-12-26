@@ -12,6 +12,7 @@ def get_songs() -> list:
         if os.path.isfile(os.path.join("./static/music/", path)):
             songs.append(path.replace('.mp3', ''))
 
+    songs = songs.sort()
     return songs
 
 def get_random_song_info() -> list:
