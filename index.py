@@ -37,14 +37,14 @@ def index():
     songs = get_songs()
     song = get_random_song_info()
     print(song)
-    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/media/'+song[2].replace(" ", "_")+".png", File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1]+".mp3")
+    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/media/'+song[2].replace(" ", "_")+".png", File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3")
 
 @app.route('/songs/<int:track_no>/')
 def track(track_no):
     songs = get_songs()
     song = get_track_song(track_no-1)
     print(song)
-    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/media/'+song[2].replace(" ", "_")+".png", File='hhttps://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1]+".mp3")
+    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Picture='/media/'+song[2].replace(" ", "_")+".png", File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3")
 
 @app.errorhandler(404)
 def page_not_found(e):
