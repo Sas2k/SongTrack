@@ -6,6 +6,8 @@
 [![GitHub Issues](https://img.shields.io/github/issues/Sas2k/SongTrack.svg)](https://github.com/Sas2k/SongTrack/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Sas2k/SongTrack.svg)](https://github.com/Sas2k/SongTrack/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsas2k%2Fsongtrack%2)
+![Vercel](https://vercelbadge.vercel.app/api/Sas2k/SongTrack)
 
 </div>
 
