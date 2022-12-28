@@ -26,7 +26,8 @@
                     <div class="columns">
                         <div class="column is-one-quarter">
                             <figure class="image is-128x128">
-                                <img src={{ url_for("static", filename=Picture) }}>
+                                <!-- <img src={{ url_for("static", filename=Picture) }}> --> <!-- For Development -->
+                                <img src="{{ Picture }}"> <!-- For Production -->
                             </figure>
                         </div>
                         <audio id="audio" controls style="display: none;">
