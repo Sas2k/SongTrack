@@ -5,12 +5,16 @@ import os
 app = Flask(__name__, static_folder='static')
 
 def get_songs() -> list:
-    songs = []
-
-    for path in os.listdir("./static/media/"):
-        # check if current path is a file
-        if os.path.isfile(os.path.join("./static/media/", path)) and path.endswith('.mp3'):
-            songs.append(path.replace('.mp3', ''))
+    
+    songs = [
+        "1-Omori_[Pedro_Silva]-172_Duet.mp3",
+        "2-Omori_[Jami_Lynne]-177_Good_Morning.mp3",
+        "3-Super_Mario_Galaxy_[Koji_Kondo]-Gusty_Garden_Galaxy.mp3",
+        "4-The_Legend_of_Zelda_[Koji_Kondo]-Main_Theme_Medley_(25th_Aniversary).mp3",
+        "5-Spirited_Away_[Joe_Hisaishi]-One_Summer's_Day.mp3",
+        "6-Super_Mario_Odyssey_[Koji_Kondo]-Steam_Gardens.mp3",
+        "7-Super_Smash_Bros._Ultimate[Hideki_Sakamoto]-Lifelight.mp3"
+    ]
 
     #sort songs by track number
     songs.sort(key=lambda x: int(x.split('-')[0]))
