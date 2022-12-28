@@ -42,7 +42,12 @@ also the .mp3 are formatted this way
  
 ## 🚀 Deployment <a name = "deployment"></a>
 
-make your changes then.
+you can click the deploy-to-vercel button on the README or
+do the one of the below commands in your Terminal. (after installing of course.)
+
+```bash
+npm install -g vercel
+```
 
 ```bash
 vercel -prod
