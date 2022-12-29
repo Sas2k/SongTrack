@@ -16,7 +16,7 @@ function play() {
     }
 }
 
-function updateProgress() {
+function updateProgress(Return) {
     progress.value = (audio.currentTime / audio.duration) * 100;
     let min = Math.floor(audio.currentTime / 60);
     let sec = Math.floor(audio.currentTime % 60);
@@ -30,11 +30,16 @@ function updateProgress() {
         durationSec = `0${durationSec}`;
     }
     duration.innerHTML = `${durationMin}:${durationSec}`;
+    if (Return) {
+        return progress.value;
+    }
 }
 
-function setProgress() {
-    audio.currentTime = (progress.value * audio.duration) / 100;
-}
+progress.addEventListener('click', function (e) {
+    let width = this.clientWidth;
+    let clickX = e.offsetX;
+    let duration = audio.duration;
+    audio.currentTime = (clickX / width) * duration;
+});
 
 audio.addEventListener('timeupdate', updateProgress);
-progress.addEventListener('click', setProgress);

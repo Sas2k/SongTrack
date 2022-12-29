@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <link rel="stylesheet" href={{ url_for('static', filename='static/css/style.css') }}>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
         <div class="hero is-primary">
@@ -21,7 +21,6 @@
             <img src="https://media.tenor.com/nl2ovUbcC5IAAAAC/waiting-for-something-waiting-for-something-to-happen.gif" alt="Waiting for something to happen?" width="500" height="500"/>
             <h1><a href="/">Here is a way <strong>Back</strong></a></h1>
         </div>
-        <script src={{ url_for('static', filename='static/js/index.js') }}></script>
     </body>
     <footer>
         <div class="footer">
@@ -34,4 +33,32 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js"></script>
+    <script src={{ url_for('static', filename='js/index.js') }}></script>
+    <script>
+        function Func(func, message){
+            let egg = new Egg();
+            egg
+                .addCode("up,up,down,down,left,right,left,right,b,a", function() {
+                    func();
+            })
+                .addHook(function(){
+                    console.log(message);
+            }).listen();
+        };
+
+        function SomethingInTheScript() {
+            alert("Welcome to whitespace, you have been here for as long as you can remember.");
+            //change the Primary color to white and all text to Black and bold
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+            document.body.style.fontWeight = "bold";
+            document.getElementsByClassName("footer")[0].style.backgroundColor = "white";
+            document.getElementsByClassName("hero")[0].style.backgroundColor = "white";
+            document.getElementsByClassName("container")[0].style.backgroundColor = "white";
+            document.getElementsByClassName("hero-body")[0].style.backgroundColor = "white";
+            document.getElementsByClassName("title")[0].style.color = "black";
+        };
+        Func(SomethingInTheScript, "You've encountered a Something In the Script!")
+    </script>
 </html>

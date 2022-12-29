@@ -1,3 +1,5 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
 .block:not(:last-child) {
     margin-bottom: 1.5rem;
 }
@@ -17,4 +19,16 @@
 a {
     color: #333;
     text-decoration: none;
+}
+
+#duration {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: right;
+}
+
+#current {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
 }

@@ -4,10 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SongTrack</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"">
         {% set TrackNum = TrackNo | int %}
     </head>
     <body>
@@ -43,7 +42,7 @@
                     </div>
                     <div class="columns">
                         <div class="column">
-                            <progress id="progress" class="progress is-primary" value="0" max="100">0%</progress>
+                            <progress id="progress"  class="progress is-primary" value="0" max="100">0%</progress>
                             <div class="columns">
                                 <div class="column">
                                     <p id="current">0:00</p>
@@ -70,17 +69,6 @@
                 </div>
             </div>
         </section>
-        <script>
-            let MusicInfo = [
-                {"info": "{{ TrackNum }}"},
-                {"info": "{{ Title }}"},
-                {"info": "{{ Artist }}"},
-                {"info": "{{ File }}"},
-                {"info": "{{ Picture }}"}
-            ]
-            console.table(MusicInfo)
-        </script>
-        <script src={{ url_for('static', filename="js/index.js") }}></script>
     </body>
     <footer>
         <div class="footer">
@@ -93,4 +81,25 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js"></script>
+    <script src={{ url_for('static', filename='js/index.js') }}></script>
+    <script>
+        let egg = new Egg();
+        egg
+            .addCode("up,up,down,down,left,right,left,right,b,a", function() {
+                alert("You found the Konami Code!");
+        })
+            .addHook(function(){
+                console.log("Konami Code Called :D");
+        }).listen();
+
+        let MusicInfo = [
+            {"info": "{{ TrackNum }}"},
+            {"info": "{{ Title }}"},
+            {"info": "{{ Artist }}"},
+            {"info": "{{ File }}"},
+            {"info": "{{ Picture }}"}
+        ]
+        console.table(MusicInfo)
+    </script>
 </html>
