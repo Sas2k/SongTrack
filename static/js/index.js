@@ -43,3 +43,9 @@ progress.addEventListener('click', function (e) {
 });
 
 audio.addEventListener('timeupdate', updateProgress);
+
+audio.addEventListener('ended', function () {
+    stopper.classList.remove('fa-pause');
+    stopper.classList.add('fa-play');
+    progress.value = 0;
+});
