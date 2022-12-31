@@ -32,3 +32,15 @@ a {
     font-weight: 600;
     text-align: left;
 }
+
+@media screen and (max-width: 768px) {
+    .block:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+
+    .text-bar {
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}
