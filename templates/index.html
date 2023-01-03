@@ -13,7 +13,7 @@
         <div class="hero is-primary">
             <div class="hero-body">
                 <h1 class="title"><a href="/">SongTrack</a></h1>
-                <p>A player that plays some selected music/OSTs. To get a random song refresh the page</p>
+                <p>A player that plays some selected music/OSTs. To get a random song refresh the page or press the shuffle button</p>
                 <p>◀ will go to the previous song.</p>
                 <p>▶ will go to the next song.</p>
                 <a href="/songs/{{ TrackNum }}/"><strong>link to the song.</strong></a>
@@ -25,13 +25,13 @@
                     <div class="columns">
                         <div class="column is-one-quarter">
                             <figure class="image is-128x128">
-                                <!-- <img src={{ url_for("static", filename=Picture) }}> --> <!-- For Development -->
-                                <img src="{{ Picture }}"> <!-- For Production -->
+                                <img src={{ url_for("static", filename=Picture) }}> <!-- For Development -->
+                                <!-- <img src="{{ Picture }}"> --> <!-- For Production -->
                             </figure>
                         </div>
                         <audio id="audio" controls style="display: none;">
-                            <!-- <source src={{ url_for("static", filename=File) }} type="audio/mp3"/> --> <!-- For Development -->
-                            <source src="{{ File }}" type="audio/mp3"> <!-- For Production -->
+                            <source src={{ url_for("static", filename=File) }} type="audio/mp3"/> <!-- For Development -->
+                            <!-- <source src="{{ File }}" type="audio/mp3"> --> <!-- For Production -->
                             Your browser does not support the audio element.
                         </audio>
                         <div class="column">
@@ -64,6 +64,9 @@
                         </button>
                         <a href="/songs/{{ TrackNum + 1 }}/" class="button is-primary">
                             <span class="icon"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                        <a href="/songs/{{ range(1, Tracks) | random }}/" class="button is-primary">
+                            <span class="icon"><i class="fas fa-random"></i></span>
                         </a>
                     </div>
                 </div>

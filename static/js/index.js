@@ -48,4 +48,6 @@ audio.addEventListener('ended', function () {
     stopper.classList.remove('fa-pause');
     stopper.classList.add('fa-play');
     progress.value = 0;
+    document.getElementById('current').innerHTML = '0:00';
+    document.getElementById('duration').innerHTML = '0:00';
 });

@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 from random import randint
-import os
 
 app = Flask(__name__, static_folder='static')
 
@@ -10,7 +9,7 @@ def get_songs() -> list:
         "1-Omori_[Pedro_Silva]-172._Duet",
         "2-Omori_[Jami_Lynne]-177._Good_Morning",
         "3-Super_Mario_Galaxy_[Koji_Kondo]-Gusty_Garden_Galaxy",
-        "4-The_Legend_of_Zelda_[Koji_Kondo]-Main_Theme_Medley_(25th_Aniversary)",
+        "4-The_Legend_of_Zelda_[Koji_Kondo]-Main_Theme_Medley_(25th_Anniversary)",
         "5-Spirited_Away_[Joe_Hisaishi]-One_Summer's_Day",
         "6-Super_Mario_Odyssey_[Koji_Kondo]-Steam_Gardens",
         "7-Super_Smash_Bros._Ultimate[Hideki_Sakamoto]-Lifelight",
@@ -20,7 +19,8 @@ def get_songs() -> list:
         "11-Mario_Kart_Wii_[Asuka_Ota_And_Ryo_Nagamatsu]-Rainbow_Road_(2008)",
         "12-Pokemon_Red_And_Blue_[Junichi_Masuda]-Title_Screen_Theme",
         "13-Pokemon_Sword_And_Shield_[Go_Ichinose]-Title_Intro_Theme",
-        "14-The_Legend_of_Zelda_Ocarina_of_Time[Koji_Kondo]-Gerudo_Valley"
+        "14-The_Legend_of_Zelda_Ocarina_of_Time[Koji_Kondo]-Gerudo_Valley",
+        "15-The_Legend_of_Zelda_Breath_of_the_Wild_[Manaka_Kataoka,_Yasuaki_Iwata_and_Hajime_Wakai]-Main_Theme",
     ]
 
     #sort songs by track number
@@ -48,7 +48,7 @@ def index():
     songs = get_songs()
     song = get_random_song_info()
     # print(song)
-    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+song[2].replace(" ", "_")+".png")
+    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+song[2].replace(" ", "_")+".png")
 
 #For Production
 #File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+song[2].replace(" ", "_")+".png"
@@ -61,7 +61,7 @@ def track(track_no):
     songs = get_songs()
     song = get_track_song(track_no-1)
     # print(song)
-    return render_template('song.html', TrackNo=song[0], Artist=song[1], Title=song[2], File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+song[2].replace(" ", "_")+".png")
+    return render_template('song.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+song[2].replace(" ", "_")+".png")
 
 @app.errorhandler(404)
 def page_not_found(e):
