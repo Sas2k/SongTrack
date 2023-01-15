@@ -21,11 +21,10 @@ def get_songs() -> list:
         "13-Pokemon_Sword_And_Shield_[Go_Ichinose]-Title_Intro_Theme",
         "14-The_Legend_of_Zelda_Ocarina_of_Time[Koji_Kondo]-Gerudo_Valley",
         "15-The_Legend_of_Zelda_Breath_of_the_Wild_[Manaka_Kataoka,_Yasuaki_Iwata_and_Hajime_Wakai]-Main_Theme",
+        "16-Super_Mario_3D_World_[Koji_Kondo]-Title_Theme"
     ]
 
-    #sort songs by track number
     songs.sort(key=lambda x: int(x.split('-')[0]))
-    # print(songs)
     return songs
 
 def get_random_song_info() -> list:
@@ -48,20 +47,20 @@ def index():
     songs = get_songs()
     song = get_random_song_info()
     # print(song)
-    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+song[2].replace(" ", "_")+".png")
+    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+songs[int(song[0])-1].replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+str(song[0])+'-'+song[2].replace(" ", "_").replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".png")
 
 #For Production
-#File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+song[2].replace(" ", "_")+".png"
+#File='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+songs[int(song[0])-1].replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+str(song[0])+'-'+song[2].replace(" ", "_").replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".png"
 
 #For Local Testing
-#File='/media/'+songs[int(song[0])-1]+".mp3", Picture='/media/'+song[2].replace(" ", "_")+".png"
+#File='/media/'+songs[int(song[0])-1]+".mp3", Picture='/media/'+str(song[0])+'-'+song[2].replace(" ", "_")+".png"
 
 @app.route('/songs/<int:track_no>/')
 def track(track_no):
     songs = get_songs()
     song = get_track_song(track_no-1)
     # print(song)
-    return render_template('song.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+songs[int(song[0])-1].replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://github.com/Sas2k/SongTrack/raw/main/static/media/'+song[2].replace(" ", "_")+".png")
+    return render_template('song.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+songs[int(song[0])-1].replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+str(song[0])+'-'+song[2].replace(" ", "_").replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".png")
 
 @app.errorhandler(404)
 def page_not_found(e):

@@ -16,6 +16,15 @@
     transition: #f5f5f5 0.2s ease-in-out;
 }
 
+.main {
+    background-image: url('../background.svg');
+}
+
+.footer {
+    background-color: #e4e4e4;
+    padding: 1.5rem 0;
+}
+
 a {
     color: #333;
     text-decoration: none;

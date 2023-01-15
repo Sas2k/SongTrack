@@ -19,14 +19,14 @@
                 <a href="/songs/{{ TrackNum }}/"><strong>link to the song.</strong></a>
             </div>
         </div>
-        <section class="section">
+        <section class="section main">
             <div class="container">
                 <div class="block">
                     <div class="columns">
                         <div class="column is-one-quarter">
                             <figure class="image is-128x128">
-                                <!-- <img src={{ url_for("static", filename=Picture) }}> --> <!-- For Development -->
-                                <img src="{{ Picture }}"> <!-- For Production -->
+                                <!-- <img src={{ url_for("static", filename=Picture) }} alt="Song Image"> --> <!-- For Development -->
+                                <img src="{{ Picture }}" alt="Song Image"> <!-- For Production -->
                             </figure>
                         </div>
                         <audio id="audio" controls style="display: none;">

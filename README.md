@@ -39,6 +39,10 @@ for playing specific songs. you can either click on the "Song Link" text go to t
 also the .mp3 are formatted this way
 
 `<track_number>-<song_artist>-<song_name>.mp3`
+
+and the `.png` are formatted this way
+
+`<track_number>-<song_name>.png`
  
 ## 🚀 Deployment <a name = "deployment"></a>
 
