@@ -21,7 +21,8 @@ def get_songs() -> list:
         "13-Pokemon_Sword_And_Shield_[Go_Ichinose]-Title_Intro_Theme",
         "14-The_Legend_of_Zelda_Ocarina_of_Time[Koji_Kondo]-Gerudo_Valley",
         "15-The_Legend_of_Zelda_Breath_of_the_Wild_[Manaka_Kataoka,_Yasuaki_Iwata_and_Hajime_Wakai]-Main_Theme",
-        "16-Super_Mario_3D_World_[Koji_Kondo]-Title_Theme"
+        "16-Super_Mario_3D_World_[Koji_Kondo]-Title_Theme",
+        "17-Kirby_and_The_forgotten_Land_[Yuta_Ogasawara_and_Hirokazu_Ando]-Title_Screen_Theme"
     ]
 
     songs.sort(key=lambda x: int(x.split('-')[0]))
