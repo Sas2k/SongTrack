@@ -23,6 +23,7 @@
 .footer {
     background-color: #e4e4e4;
     padding: 1.5rem 0;
+    position: bottom;
 }
 
 a {

@@ -26,13 +26,11 @@
                     <div class="columns">
                         <div class="column is-one-quarter">
                             <figure class="image is-128x128">
-                                <!-- <img src={{ url_for("static", filename=Picture) }}> --> <!-- For Development -->
-                                <img src="{{ Picture }}" alt="Song Image"> <!-- For Production -->
+                                <img src="{{ Picture }}" alt="Song Image">
                             </figure>
                         </div>
                         <audio id="audio" controls style="display: none;">
-                            <!-- <source src={{ url_for("static", filename=File) }} type="audio/mp3"/> --> <!-- For Development -->
-                            <source src="{{ File }}" type="audio/mp3"> <!-- For Production -->
+                            <source src="{{ File }}" type="audio/mp3">
                             Your browser does not support the audio element.
                         </audio>
                         <div class="column">
