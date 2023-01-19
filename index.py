@@ -49,7 +49,7 @@ def index():
     songs = get_songs()
     song = get_random_song_info()
     # print(song)
-    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File=url_for('static', filename='/media/'+songs[int(song[0])-1]+".mp3"), Picture=url_for('static' , filename='/media/'+str(song[0])+'-'+song[2].replace(" ", "_")+".png"))
+    return render_template('index.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+songs[int(song[0])-1].replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+str(song[0])+'-'+song[2].replace(" ", "_").replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".png")
 
 #For Production
 #File='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+songs[int(song[0])-1].replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+str(song[0])+'-'+song[2].replace(" ", "_").replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".png"
@@ -62,7 +62,7 @@ def track(track_no):
     songs = get_songs()
     song = get_track_song(track_no-1)
     # print(song)
-    return render_template('song.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File=url_for('static', filename='/media/'+songs[int(song[0])-1]+".mp3"), Picture=url_for('static' , filename='/media/'+str(song[0])+'-'+song[2].replace(" ", "_")+".png"))
+    return render_template('song.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+songs[int(song[0])-1].replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+str(song[0])+'-'+song[2].replace(" ", "_").replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".png")
 
 @app.errorhandler(404)
 def page_not_found(e):
