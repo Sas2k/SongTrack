@@ -12,16 +12,20 @@
     <body>
         <div class="hero is-primary">
             <div class="hero-body">
-                <h1 class="title"><a href="/">SongTrack</a></h1> <br>
-                <a href="/about"><strong>About Page</strong></a> <br>
+                <h1 class="title"><a href="/">SongTrack</a></h1>
+                <a href="/about">About Page (Wait you're already here)</a> <br>
                 <a href="/list"><strong>List of Songs</strong></a>
             </div>
         </div>
-        <br/>
-        <div class="container is-centered">
-            <h1 class="title">404 Page Not Found</h1>
-            <img src="https://media.tenor.com/nl2ovUbcC5IAAAAC/waiting-for-something-waiting-for-something-to-happen.gif" alt="Waiting for something to happen?" width="500" height="500"/>
-            <h1><a href="/">Here is a way <strong>Back</strong></a></h1>
+        <div class="section secondary-main">
+            <div class="container">
+                <h2 class="subtitle">About</h2>
+                <p>This website is created and maintained by <a href="https://github.com/Sas2k">Sas2k</a></p>
+                <p>This Music Player plays all of my favorite OSTs and Music.</p>
+                <p>It is made with <a href="https://flask.palletsprojects.com/en/">Flask</a> and <a href="https://bulma.io/">Bulma</a></p>
+                <p>It is hosted on <a href="https://vercel.com/">Vercel</a></p>
+                <p>It is open source and you can find the source code <a href="https://github.com/Sas2k/SongTrack">here</a></p>
+            </div>
         </div>
     </body>
     <footer>
@@ -36,7 +40,6 @@
         </div>
     </footer>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js"></script>
-    <script src={{ url_for('static', filename='js/index.js') }}></script>
     <script>
         function Func(func, message){
             let egg = new Egg();
@@ -49,18 +52,8 @@
             }).listen();
         };
 
-        function SomethingInTheScript() {
-            alert("Welcome to whitespace, you have been here for as long as you can remember.");
-            //change the Primary color to white and all text to Black and bold
-            document.body.style.backgroundColor = "white";
-            document.body.style.color = "black";
-            document.body.style.fontWeight = "bold";
-            document.getElementsByClassName("footer")[0].style.backgroundColor = "white";
-            document.getElementsByClassName("hero")[0].style.backgroundColor = "white";
-            document.getElementsByClassName("container")[0].style.backgroundColor = "white";
-            document.getElementsByClassName("hero-body")[0].style.backgroundColor = "white";
-            document.getElementsByClassName("title")[0].style.color = "black";
-        };
-        Func(SomethingInTheScript, "You've encountered a Something In the Script!")
+        Func(function(){
+            alert("You read the about page!");
+        }, "why are you reading the dev console?");
     </script>
 </html>

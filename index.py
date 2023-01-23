@@ -64,6 +64,21 @@ def track(track_no):
     # print(song)
     return render_template('song.html', TrackNo=song[0], Artist=song[1], Title=song[2], Tracks=len(songs), File='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+songs[int(song[0])-1].replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".mp3", Picture='https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/'+str(song[0])+'-'+song[2].replace(" ", "_").replace("(", "%28").replace(")", "%29").replace("[", "%5B").replace("]", "%5D")+".png")
 
+@app.route('/about/')
+def about():
+    return render_template('about.html')
+
+@app.route('/list/')
+def list():
+    raw_songs = get_songs()
+    songs = []
+    for song in raw_songs:
+        song = song.split('-', 2)
+        songs.append(song)
+
+    songs.sort(key=lambda x: int(x[0]))
+    return render_template('list.html', Songs=songs)
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404

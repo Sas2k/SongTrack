@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SongTrack</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"">
+    </head>
+    <body>
+        <div class="hero is-primary">
+            <div class="hero-body">
+                <h1 class="title"><a href="/">SongTrack</a></h1>
+                <p>A player that plays some selected music/OSTs. To get a random song refresh the page or press the shuffle button</p>
+                <p>Every song in the player.</p>
+                <a href="/about"><strong>About Page</strong></a>
+            </div>
+        </div>
+        <section class="section secondary-main">
+            <div class="container list">
+                {% for song in Songs %}
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128">
+                                        <img src="https://raw.githubusercontent.com/Sas2k/SongTrack/main/static/media/{{song[0]}}-{{song[2]}}.png">
+                                    </p>
+                                <div class="media-content">
+                                    <p class="title is-4">#{{ song[0] }} {{ song[2] | replace("_", " ") }}</p>
+                                    <p class="subtitle is-6">{{ song[1] | replace("_", " ") }}</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <a style="color: #00d1b2;" href="../songs/{{ song[0] }}" target="_blank">Link to Song</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </body>
+    <footer>
+        <div class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>SongTrack</strong> by <a href="https://github.com/Sas2k">Sas2k 2022</a>. <br>
+                    <strong><a href="https://github.com/Sas2k/SongTrack">Source Code</a></strong> <br>
+                    <em>Made with ♥</em>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js"></script>
+    <script>
+        let egg = new Egg();
+        egg
+            .addCode("up,up,down,down,left,right,left,right,b,a", function() {
+                alert("You found the Konami Code!");
+        })
+            .addHook(function(){
+                console.log("A List full of songs.... and nothing more...");
+        }).listen();
+    </script>
+</html>
