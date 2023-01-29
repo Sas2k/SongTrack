@@ -24,6 +24,7 @@ def get_songs() -> list:
         "16-Super_Mario_3D_World_[Koji_Kondo]-Title_Theme",
         "17-Kirby_and_The_forgotten_Land_[Yuta_Ogasawara_and_Hirokazu_Ando]-Title_Screen_Theme",
         "18-Howl's_Moving_Castle_[Joe_Hisaishi]-Merry-Go-Round_of_Life",
+        "19-DuckTales_[Hiroshige_Tonomura_arr.Ted_Lee]-The_Moon_Theme"
     ]
 
     songs.sort(key=lambda x: int(x.split('-')[0]))
