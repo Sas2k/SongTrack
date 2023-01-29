@@ -15,5 +15,8 @@
             "src": "/(.*)",
             "dest": "index.py"
         }
-    ]
+    ],
+    "projectSettings": {
+        "framework": "python"
+    }
 }
